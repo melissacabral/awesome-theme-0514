@@ -1,4 +1,9 @@
-<?php get_header(); //include header.php ?>
+<?php 
+/*
+Template Name: Page with no sidebar
+*/
+
+get_header(); //include header.php ?>
 		
 <main id="content">
 	<?php //THE LOOP
@@ -32,5 +37,4 @@
 
 </main><!-- end #content -->
 
-<?php get_sidebar(); //include sidebar.php ?>
 <?php get_footer(); //include footer.php ?>
