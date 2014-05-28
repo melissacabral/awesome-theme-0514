@@ -10,7 +10,7 @@
 <?php //big banner image
 		the_post_thumbnail( 'banner' ); ?>
 
-		<article id="post-<?php the_ID(); ?>" >
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<h2 class="entry-title"> 
 				<a href="<?php the_permalink(); ?>"> 
 					<?php the_title(); ?> 
