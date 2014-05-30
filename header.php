@@ -42,20 +42,23 @@
 				</a>
 			</h1>
 			<h2 class="site-description"> <?php bloginfo('description'); ?> </h2>
-			<nav>
-				<ul class="nav">
-					<?php wp_list_pages( array(
-						'depth' => 1,
-						'title_li' => '',
-						) ); ?>
-					</ul>
-				</nav>
+			
+			<?php 
+			//display a menu area that was registered in functions.php
+			wp_nav_menu( array(
+				'theme_location' => 'main_menu',
+				'container' => 'nav', 		// nav wrapper instead of div
+				'menu_class' => 'nav',  	//ul class="nav"
+			) ); ?>
+
 		</div><!-- end .top-bar -->
 		
-		<ul class="utilities">
-			<li><a href="/contact-us/">Contact Us</a></li>
-			<li><a href="/location/">Location</a></li>
-		</ul>
+		<?php wp_nav_menu( array(
+			'theme_location' => 'utilities',
+			'container' => false,  			//no div or nav wrapper
+			'menu_class' => 'utilities',   	//ul class="utilities"
+			'fallback_cb' => false,  		//if no menu assigned, do nothing
+		) ); ?>
 
 		<?php get_search_form(); //includes searchform.php if it exists, if not, this outputs the default search bar ?>	
 

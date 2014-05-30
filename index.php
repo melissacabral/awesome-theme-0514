@@ -41,6 +41,26 @@
 		comments_template(); ?>
 
 		<?php endwhile; ?>
+
+		<div class="pagination">
+			<?php
+			if( is_single() ){
+				//single pagination
+				next_post_link('%link', '&larr; Newer Post: %title ' );		//newer post
+				previous_post_link( '%link', ' Older Post: %title &rarr;' );  //older post
+			}else{
+				//archive pagination
+				//use pagenavi plugin if it exists
+				if( function_exists('wp_pagenavi') ){
+					wp_pagenavi();
+				}else{
+					next_posts_link('&larr; Older Posts');  	//older posts
+					previous_posts_link('Newer Posts &rarr;');  //newer posts
+				}
+			}
+			?>			
+		</div>
+
 	<?php else: ?>
 
 	<h2>Sorry, no posts found</h2>
