@@ -28,11 +28,17 @@
 			<div class="postmeta"> 
 				<span class="author"> Posted by: <?php the_author(); ?></span>
 				<span class="date"> <?php the_date(); ?> </span>
-				<span class="num-comments"> <?php comments_number(); ?></span>
+				<span class="num-comments">
+					<a href="<?php the_permalink() ?>#comments">
+						<?php comments_number(); ?>
+					</a></span>
 				<span class="categories"><?php the_category(); ?></span>
 				<span class="tags"><?php the_tags(); ?></span> 
 			</div><!-- end postmeta -->			
 		</article><!-- end post -->
+
+		<?php //display comments list and form
+		comments_template(); ?>
 
 		<?php endwhile; ?>
 	<?php else: ?>
