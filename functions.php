@@ -55,6 +55,39 @@ function awesome_menu_areas(){
 }
 add_action( 'init', 'awesome_menu_areas' );
 
-
+/**
+ * Set Up Widget Areas
+ * @since 0.1
+ */
+add_action( 'widgets_init', 'awesome_widget_areas' );
+function awesome_widget_areas(){
+	register_sidebar( array(
+		'name' 			=> 'Blog Sidebar',
+		'id' 			=> 'blog_sidebar',
+		'description' 	=> 'Appears alongside all blog archives and posts',
+		'before_widget' => '<section id="%1$s" class="widget clearfix %2$s">',
+		'after_widget' 	=> '</section>',
+		'before_title' 	=> '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	) );
+	register_sidebar( array(
+		'name' 			=> 'Footer Area',
+		'id' 			=> 'footer_area',
+		'description' 	=> 'Appears at the bottom of every view',
+		'before_widget' => '<section id="%1$s" class="widget clearfix %2$s">',
+		'after_widget' 	=> '</section>',
+		'before_title' 	=> '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	) );
+	register_sidebar( array(
+		'name' 			=> 'Home Page Area',
+		'id' 			=> 'home_page_area',
+		'description' 	=> 'Appears in the middle of the front page',
+		'before_widget' => '<section id="%1$s" class="widget clearfix %2$s">',
+		'after_widget' 	=> '</section>',
+		'before_title' 	=> '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	) );
+} //end awesome_widget_areas function
 
 //no close php
