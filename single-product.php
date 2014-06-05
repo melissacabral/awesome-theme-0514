@@ -18,15 +18,13 @@
 			</h2>	
 
 			<div class="entry-content">
-				<?php the_meta(); //list of all custom fields ?>
+			<?php the_meta(); //list of all custom fields ?>
 
-				<?php  
-				//technique to get a single custom field
-				//$price = get_post_meta( $post->ID, 'Price', true  ); 
-				//echo $price;
-				?>
+			<?php the_terms( $post->ID, 'brand', '<b>Brand:</b> ' ); ?>
 
-				<?php the_content(); ?>
+			<?php the_terms( $post->ID, 'feature', '<br /><b>Features:</b> ' ); ?>
+
+			<?php the_content(); ?>
 			</div>
 					
 		</article><!-- end post -->
@@ -61,5 +59,5 @@
 
 </main><!-- end #content -->
 
-<?php get_sidebar(); //include sidebar.php ?>
+<?php get_sidebar( 'shop' ); //include sidebar.php ?>
 <?php get_footer(); //include footer.php ?>

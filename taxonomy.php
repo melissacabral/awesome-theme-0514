@@ -1,8 +1,16 @@
+<?php 
+/*
+Template to display Shop Brand and Feature Archives
+*/ 
+?>
 <?php get_header(); //include header.php ?>
 
 <main id="content">
 	<?php //THE LOOP
 	if( have_posts() ): ?>
+
+		<h2 class="archive-title">Products filtered by: <?php single_term_title(); ?></h2>
+
 		<?php 
 		while( have_posts() ): 
 			the_post(); ?>
@@ -68,5 +76,5 @@
 
 </main><!-- end #content -->
 
-<?php get_sidebar( 'shop' ); //include sidebar.php ?>
+<?php get_sidebar( 'shop' ); //include sidebar-shop.php ?>
 <?php get_footer(); //include footer.php ?>
