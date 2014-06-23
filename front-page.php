@@ -7,8 +7,13 @@
 		while( have_posts() ): 
 			the_post(); ?>
 
-<?php //big banner image
-		the_post_thumbnail( 'banner' ); ?>
+<?php 
+//use rad_slider if it exists
+	if( function_exists('rad_slider') ){
+		rad_slider();
+	}else{
+		the_post_thumbnail( 'banner' ); 
+	}?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<h2 class="entry-title"> 

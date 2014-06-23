@@ -35,6 +35,17 @@
 
 <body <?php body_class(); ?>>	
 	<header role="banner">
+
+	<?php //show the phone number from the options plugin
+	$values = get_option('rad_options');
+
+	if( isset($values['phone']) ){
+		echo '<span class="phone">';
+		echo $values['phone'];
+		echo '</span>';
+	}
+	?>
+
 		<div class="top-bar clearfix">
 			<h1 class="site-name">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ) ?>" rel="home"> 
@@ -43,6 +54,9 @@
 			</h1>
 			<h2 class="site-description"> <?php bloginfo('description'); ?> </h2>
 			
+
+
+
 			<?php 
 			//display a menu area that was registered in functions.php
 			wp_nav_menu( array(

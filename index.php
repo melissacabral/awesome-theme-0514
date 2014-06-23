@@ -21,6 +21,7 @@
 				//if viewing a single post, show full content, otherwise, show excerpt
 				if( is_singular() ){
 					the_content();
+					wp_link_pages();
 				}else{
 					the_excerpt(); //first 55 words of the post
 				} ?>

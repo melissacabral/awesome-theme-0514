@@ -14,6 +14,9 @@ add_editor_style();
 //				  name, width, height, crop?
 add_image_size( 'banner', 1100, 330, true );
 
+//required for maximum embed width
+if ( ! isset( $content_width ) ) $content_width = 740;
+
 /**
  * Improve excerpts and make them more user friendly
  * @since 0.1
@@ -89,5 +92,34 @@ function awesome_widget_areas(){
 		'after_title'	=> '</h3>',
 	) );
 } //end awesome_widget_areas function
+
+
+/**
+ * ADMIN COLORS experiment
+ */
+function more_admin_color_schemes()
+{
+    $theme_folder = get_template_directory_uri(); //url to the theme directory
+    
+    wp_admin_css_color(
+        'melissa_colors',
+        'Melissa Scheme',
+        $theme_folder . '/styles/colors.css',
+        array( '#0A3D80', '#0c4da1', '#ed5793', '#eb853b' )
+    );
+}
+add_action('admin_init', 'more_admin_color_schemes');
+
+function set_default_admin_color($user_id)
+{
+    $args = array(
+        'ID' => $user_id,
+        'admin_color' => 'melissa_colors' //Your custom color key
+    );
+    wp_update_user( $args );
+}
+add_action('user_register', 'set_default_admin_color');
+
+
 
 //no close php
